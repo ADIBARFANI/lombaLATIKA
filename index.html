@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#10b981" />
-    <meta name="description" content="Identify waste types from a photo and get instant recycling guidance." />
-    <title>Smart Waste Classifier</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script>
-      // Pre-paint the theme to avoid a flash of the wrong colour scheme.
-      (function () {
-        try {
-          var stored = localStorage.getItem("swc-theme");
-          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          if (stored === "dark" || (!stored && prefersDark)) {
-            document.documentElement.classList.add("dark");
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </head>
-  <body>
-    <div class="app-shell">
-      <header id="navbar"></header>
-      <main class="main">
-        <div id="page-root" class="page-container"></div>
-      </main>
-      <footer id="footer"></footer>
-    </div>
-    <script type="module" src="js/app.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10b981" />
+  <title>Smart Waste Classifier</title>
+  <style>
+    /* ---------- paste the ENTIRE css/styles.css contents here ---------- */
+    /* (from the "make all the css into 1 file" message)                   */
+  </style>
+  <script>
+    // Pre-paint theme
+    (function () {
+      try {
+        var s = localStorage.getItem("swc-theme");
+        if (s === "dark" || (!s && matchMedia("(prefers-color-scheme: dark)").matches))
+          document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div class="app-shell">
+    <header id="navbar"></header>
+    <main class="main">
+      <div id="page-root" class="page-container"></div>
+    </main>
+    <footer id="footer"></footer>
+  </div>
+  <script>
+    /* ---------- paste the ENTIRE js/app.js contents here ---------- */
+    /* (from the "combine everything into 3 files" message)          */
+  </script>
+</body>
 </html>
