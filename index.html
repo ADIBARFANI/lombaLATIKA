@@ -3,34 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#10b981" />
   <title>Smart Waste Classifier</title>
-  <style>
-    /* ---------- paste the ENTIRE css/styles.css contents here ---------- */
-    /* (from the "make all the css into 1 file" message)                   */
-  </style>
   <script>
-    // Pre-paint theme
-    (function () {
-      try {
-        var s = localStorage.getItem("swc-theme");
-        if (s === "dark" || (!s && matchMedia("(prefers-color-scheme: dark)").matches))
-          document.documentElement.classList.add("dark");
-      } catch (e) {}
-    })();
+    (function(){try{var s=localStorage.getItem("swc-theme");
+      if(s==="dark"||(!s&&matchMedia("(prefers-color-scheme:dark)").matches))
+      document.documentElement.classList.add("dark");}catch(e){}})();
   </script>
+  <style>
+    /* ==== PASTE THE ENTIRE css/styles.css CONTENTS HERE ==== */
+    body { background: #f8fafc; color: #1e293b; font-family: system-ui, sans-serif; margin:0; }
+    .app-shell { display:flex; flex-direction:column; min-height:100vh; }
+    .main { flex:1; }
+    .page-container { max-width:720px; margin:0 auto; padding:24px 16px; }
+    #boot-error { display:none; padding:16px; margin:16px; background:#fee; color:#900;
+                  border:1px solid #fcc; border-radius:8px; font-family:monospace;
+                  white-space:pre-wrap; font-size:13px; }
+  </style>
 </head>
 <body>
+  <pre id="boot-error"></pre>
   <div class="app-shell">
     <header id="navbar"></header>
     <main class="main">
-      <div id="page-root" class="page-container"></div>
+      <div id="page-root" class="page-container">
+        <p style="text-align:center; padding:64px 16px; color:#666;">
+          Loading… if this stays visible, JavaScript did not run —<br>
+          open the browser console (F12) for the reason.
+        </p>
+      </div>
     </main>
     <footer id="footer"></footer>
   </div>
+
   <script>
-    /* ---------- paste the ENTIRE js/app.js contents here ---------- */
-    /* (from the "combine everything into 3 files" message)          */
+    // Show any uncaught error on the page so you can see what went wrong.
+    window.addEventListener("error", function (e) {
+      var b = document.getElementById("boot-error");
+      b.style.display = "block";
+      b.textContent = "ERROR: " + e.message + "\n" + (e.filename || "") + ":" + (e.lineno || "");
+    });
+
+    /* ==== PASTE THE ENTIRE js/app.js CONTENTS HERE ==== */
   </script>
 </body>
 </html>
