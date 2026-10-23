@@ -10,40 +10,20 @@
       document.documentElement.classList.add("dark");}catch(e){}})();
   </script>
   <style>
-    /* ==== PASTE THE ENTIRE css/styles.css CONTENTS HERE ==== */
-    body { background: #f8fafc; color: #1e293b; font-family: system-ui, sans-serif; margin:0; }
-    .app-shell { display:flex; flex-direction:column; min-height:100vh; }
-    .main { flex:1; }
-    .page-container { max-width:720px; margin:0 auto; padding:24px 16px; }
-    #boot-error { display:none; padding:16px; margin:16px; background:#fee; color:#900;
-                  border:1px solid #fcc; border-radius:8px; font-family:monospace;
-                  white-space:pre-wrap; font-size:13px; }
+    /* PASTE ALL YOUR CSS FROM styles.css HERE */
   </style>
 </head>
 <body>
-  <pre id="boot-error"></pre>
   <div class="app-shell">
     <header id="navbar"></header>
     <main class="main">
-      <div id="page-root" class="page-container">
-        <p style="text-align:center; padding:64px 16px; color:#666;">
-          Loading… if this stays visible, JavaScript did not run —<br>
-          open the browser console (F12) for the reason.
-        </p>
-      </div>
+      <div id="page-root" class="page-container"></div>
     </main>
     <footer id="footer"></footer>
   </div>
 
   <script>
-    // Show any uncaught error on the page so you can see what went wrong.
-    window.addEventListener("error", function (e) {
-      var b = document.getElementById("boot-error");
-      b.style.display = "block";
-      b.textContent = "ERROR: " + e.message + "\n" + (e.filename || "") + ":" + (e.lineno || "");
-    });
-
-    /* ==== PASTE THE ENTIRE js/app.js CONTENTS HERE ==== */
+    /* PASTE ALL YOUR JS FROM app.js HERE */
   </script>
 </body>
 </html>
